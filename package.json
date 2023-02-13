@@ -29,18 +29,19 @@
 		"autoprefixer": "^10.4.13"
 	},
 	"dependencies": {
+		"@adeora/solid-query": "^0.13.0",
+		"@prisma/client": "^4.9.0",
+		"@solid-primitives/scheduled": "^1.2.1",
 		"@solidjs/meta": "^0.28.2",
 		"@solidjs/router": "^0.7.0",
-		"solid-js": "^1.5.7",
+		"@trpc/client": "^10.10.0",
+		"@trpc/server": "^10.10.0",
+		"solid-js": "^1.6.10",
 		"solid-start": "^0.2.19",
-		"undici": "5.11.0",
-		"zod": "^3.19.1",
-		"@prisma/client": "^4.6.1",
-		"solid-trpc": "^0.1.0-sssr.5",
-		"@adeora/solid-query": "0.12.0",
 		"solid-start-trpc": "^0.0.16",
-		"@trpc/client": "^10.1.0",
-		"@trpc/server": "^10.1.0"
+		"solid-trpc": "^0.1.0-sssr.4",
+		"undici": "^5.11.0",
+		"zod": "^3.20.2"
 	},
 	"engines": {
 		"node": ">=16"
