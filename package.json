@@ -35,7 +35,12 @@
 		"solid-start": "^0.2.19",
 		"undici": "5.11.0",
 		"zod": "^3.19.1",
-		"@prisma/client": "^4.6.1"
+		"@prisma/client": "^4.6.1",
+		"solid-trpc": "^0.1.0-sssr.5",
+		"@adeora/solid-query": "0.12.0",
+		"solid-start-trpc": "^0.0.16",
+		"@trpc/client": "^10.1.0",
+		"@trpc/server": "^10.1.0"
 	},
 	"engines": {
 		"node": ">=16"

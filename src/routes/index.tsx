@@ -1,18 +1,16 @@
 import { type VoidComponent } from "solid-js";
-import { A, useRouteData } from "solid-start";
-import { createServerData$ } from "solid-start/server";
-import { prisma } from "~/server/db/client";
+import { A } from "solid-start";
+import { trpc } from "../utils/trpc";
+import { unstable_island } from "solid-start";
 
-export function routeData() {
-	return createServerData$(async () => await prisma.cartItem.findMany());
-}
+const Cart = unstable_island(() => import("../components/cart"));
 
 const Home: VoidComponent = () => {
-	const data = useRouteData<typeof routeData>();
+	const hello = trpc.example.hello.useQuery(() => ({ name: "from tRPC" }));
 	return (
 		<main class='flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#026d56] to-[#152a2c]'>
 			<div class='container flex flex-col items-center justify-center gap-12 px-4 py-16 '>
-				{JSON.stringify(data())}
+				<Cart />
 				<h1 class='text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]'>
 					Create <span class='text-[hsl(88, 77%, 78%)]'>JD</span> App
 				</h1>
@@ -32,10 +30,11 @@ const Home: VoidComponent = () => {
 					>
 						<h3 class='text-2xl font-bold'>JD End →</h3>
 						<div class='text-lg'>
-							Learn more about Create JD App, the libraries it uses, and how to deploy it.
+							Learn more about Create JD App, the libraries it uses, and how to deploy it
 						</div>
 					</A>
 				</div>
+				<p class='text-2xl text-white'>{hello.data ?? "Loading tRPC query"}</p>
 			</div>
 		</main>
 	);
